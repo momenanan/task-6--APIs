@@ -122,7 +122,7 @@ body.dialog-open {
 
 .search-container input {
     width: 100%;
-    padding: 12px 40px 12px 12px; /* توفير مساحة للأيقونة داخل الحقل */
+    padding: 12px 40px 12px 12px; 
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 16px;
