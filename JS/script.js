@@ -12,6 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     displaySearchHistory();
 });
 
+searchIcon.addEventListener('click', () => {
+    searchMovies();
+});
+
 
 searchInput.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
@@ -19,9 +23,6 @@ searchInput.addEventListener('keypress', (event) => {
     }
 });
 
-searchIcon.addEventListener('click', () => {
-    searchMovies();
-});
 
 showHistoryBtn.addEventListener('click', () => {
     searchHistoryDiv.classList.toggle('show');
