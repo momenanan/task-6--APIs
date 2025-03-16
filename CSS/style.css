@@ -138,6 +138,19 @@ body.dialog-open {
     pointer-events: none; 
 }
 
+.search-icon {
+    position: absolute;
+    right: 15px;
+    font-size: 20px;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.search-icon:hover {
+    color: #007BFF;
+}
+
 #showHistoryBtn {
     padding: 10px 20px;
     border: none;
@@ -153,8 +166,6 @@ body.dialog-open {
 #showHistoryBtn:hover {
     background-color: #0056b3;
 }
-
-
 
 #searchHistory {
     display: none;
