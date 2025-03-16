@@ -135,7 +135,10 @@ body.dialog-open {
     transform: translateY(-50%);
     font-size: 20px; 
     color: #007BFF;
-    pointer-events: none; 
+    pointer-events: auto;
+    cursor: pointer; 
+    z-index: 2;
+    
 }
 
 .search-icon {
@@ -145,6 +148,7 @@ body.dialog-open {
     color: #666;
     cursor: pointer;
     transition: color 0.3s;
+    z-index: 3;
 }
 
 .search-icon:hover {
@@ -161,6 +165,7 @@ body.dialog-open {
     cursor: pointer;
     margin-top: 10px;
     transition: background-color 0.3s;
+    z-index: 1;
 }
 
 #showHistoryBtn:hover {
