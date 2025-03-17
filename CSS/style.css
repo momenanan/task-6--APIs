@@ -128,6 +128,20 @@ body.dialog-open {
     font-size: 16px;
 }
 
+
+.search-container i {
+    position: absolute;
+    right: 125px; 
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px; 
+    color: #007BFF;
+    pointer-events: auto;
+    cursor: pointer; 
+    z-index: 2;
+    
+}
+
 .search-icon {
     position: absolute;
     right: 15px;
@@ -135,8 +149,61 @@ body.dialog-open {
     color: #666;
     cursor: pointer;
     transition: color 0.3s;
+    z-index: 3;
 }
 
 .search-icon:hover {
     color: #007BFF;
+}
+
+#showHistoryBtn {
+    padding: 6px 20px; 
+    height: auto; 
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 1;
+}
+
+#showHistoryBtn:hover {
+    background-color: #0056b3;
+}
+
+#searchHistory {
+    display: none;
+    margin-top: 20px;
+}
+
+#searchHistory.show {
+    display: block;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    background-color: #f9f9f9;
+    margin: 5px 0;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.delete-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: darkred;
 }
