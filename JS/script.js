@@ -27,7 +27,7 @@ showHistoryBtn.addEventListener('click', () => {
 const showError = (message) => {
     errorMessage.textContent = message;
     errorMessage.classList.remove('hidden');
-    setTimeout(() => errorMessage.classList.add('hidden'), 3000); // إخفاء الخطأ بعد 3 ثوانٍ
+    setTimeout(() => errorMessage.classList.add('hidden'), 3000); 
 };
 
 const loadDefaultMovies = () => fetchMovies('Avengers');
@@ -69,6 +69,10 @@ const fetchMovies = (query) => {
 };
 
 const openMovieDialog = (movieID) => {
+    const existingDialog = document.querySelector('.dialog');
+    if (existingDialog) {
+        existingDialog.remove();
+    }
     fetch(`https://www.omdbapi.com/?i=${movieID}&apikey=${API_KEY}`)
         .then(response => response.json())
         .then(movie => {
