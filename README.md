@@ -27,7 +27,7 @@ Before running the project, ensure you have the following installed on your syst
 
 ### Steps to Run the Project Locally
 
-1. **Clone the Repository**:
+ **Clone the Repository**:
  Open your terminal and run the following command:  
 ```bash
  git clone https://github.com/momenanan/task-6--APIs.git
