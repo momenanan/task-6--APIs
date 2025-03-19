@@ -4,6 +4,7 @@ const searchIcon = document.getElementById('searchIcon');
 const moviesDiv = document.getElementById('movies');
 const searchHistoryDiv = document.getElementById('searchHistory');
 const showHistoryBtn = document.getElementById('showHistoryBtn');
+const errorMessage = document.getElementById('errorMessage');
 
 let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
 
@@ -23,14 +24,22 @@ showHistoryBtn.addEventListener('click', () => {
     displaySearchHistory();
 });
 
+const showError = (message) => {
+    errorMessage.textContent = message;
+    errorMessage.classList.remove('hidden');
+    setTimeout(() => errorMessage.classList.add('hidden'), 3000); // إخفاء الخطأ بعد 3 ثوانٍ
+};
+
 const loadDefaultMovies = () => fetchMovies('Avengers');
 
 const searchMovies = () => {
     const query = searchInput.value.trim();
-    if (query) {
-        saveSearchHistory(query);
-        fetchMovies(query);
+    if (!query) {
+        showError("Please enter a movie name.");
+        return;
     }
+    saveSearchHistory(query);
+    fetchMovies(query);
 };
 
 const fetchMovies = (query) => {
@@ -38,7 +47,7 @@ const fetchMovies = (query) => {
         .then(response => response.json())
         .then(data => {
             moviesDiv.innerHTML = '';
-            if (data.Search) {
+            if (data.Response === "True") {
                 data.Search.forEach(movie => {
                     const movieElement = document.createElement('div');
                     movieElement.classList.add('movie');
@@ -50,10 +59,13 @@ const fetchMovies = (query) => {
                     moviesDiv.appendChild(movieElement);
                 });
             } else {
-                moviesDiv.innerHTML = '<p>No movies found.</p>';
+                showError("No movies found. Try a different search.");
             }
         })
-        .catch(error => console.error('Error fetching movies:', error));
+        .catch(error => {
+            console.error('Error fetching movies:', error);
+            showError("An error occurred while fetching movies.");
+        });
 };
 
 const openMovieDialog = (movieID) => {
@@ -77,7 +89,10 @@ const openMovieDialog = (movieID) => {
             const closeButton = dialog.querySelector('.close-btn');
             closeButton.addEventListener('click', () => dialog.remove());
         })
-        .catch(error => console.error('Error fetching movie details:', error));
+        .catch(error => {
+            console.error('Error fetching movie details:', error);
+            showError("Failed to fetch movie details.");
+        });
 };
 
 const saveSearchHistory = (query) => {
