@@ -69,6 +69,10 @@ const fetchMovies = (query) => {
 };
 
 const openMovieDialog = (movieID) => {
+    const existingDialog = document.querySelector('.dialog');
+    if (existingDialog) {
+        existingDialog.remove();
+    }
     fetch(`https://www.omdbapi.com/?i=${movieID}&apikey=${API_KEY}`)
         .then(response => response.json())
         .then(movie => {
