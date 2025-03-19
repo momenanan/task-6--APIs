@@ -128,6 +128,7 @@ body.dialog-open {
     font-size: 16px;
 }
 
+
 .search-container i {
     position: absolute;
     right: 125px; 
@@ -156,14 +157,14 @@ body.dialog-open {
 }
 
 #showHistoryBtn {
-    padding: 10px 20px;
+    padding: 6px 20px; 
+    height: auto; 
     border: none;
     background-color: #007BFF;
     color: white;
     font-size: 14px;
     border-radius: 6px;
     cursor: pointer;
-    margin-top: 10px;
     transition: background-color 0.3s;
     z-index: 1;
 }
@@ -205,4 +206,16 @@ body.dialog-open {
 
 .delete-btn:hover {
     background-color: darkred;
+}
+.error {
+    color: white;
+    background-color: red;
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.hidden {
+    display: none;
 }
