@@ -43,7 +43,7 @@ const searchMovies = () => {
 };
 
 const fetchMovies = (query) => {
-    fetch(`https://www.omdbapi.com/?s=${query}&apikey=${API_KEY}`)
+    fetch(`https://www.omdbapi.com/?s=${query}&type=movie&apikey=${API_KEY}`)
         .then(response => response.json())
         .then(data => {
             moviesDiv.innerHTML = '';
@@ -69,11 +69,8 @@ const fetchMovies = (query) => {
 };
 
 const openMovieDialog = (movieID) => {
-    const existingDialog = document.querySelector('.dialog');
-    if (existingDialog) {
-        existingDialog.remove();
-    }
-    fetch(`https://www.omdbapi.com/?i=${movieID}&apikey=${API_KEY}`)
+
+    fetch(`https://www.omdbapi.com/?i=${movieID}&type=movie&apikey=${API_KEY}`)
         .then(response => response.json())
         .then(movie => {
             const dialog = document.createElement('div');
